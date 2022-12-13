@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Annota | Create Project </title>
+
+        <link rel="stylesheet" href="{% static './style.css' %}">
+    </head>
+    
+    <body>
+
+        <!--------------------------- HEADER --------------------------->
+        <div class="header">
+            <a href="#default" class="logo">Annota</a>
+            <div class="header-right">
+              <a href="/home">Home</a>
+              <a href="#contact">Contact</a>
+              <a href="#about">About</a>
+            </div>
+        </div>
+
+        <!--------------------------- SECONDARY HEADER --------------------------->
+        <div class="secondary-header">
+            <!--------------------------- TITLE --------------------------->
+            <div>
+                <p class="secondary-header-title secondary-header-title-uppercase">{{ project.name }}</p>
+            </div>
+            <!--------------------------- BACK BUTTON BUTTON --------------------------->
+            <div class="back-button">
+                <a button></a><a href="/home/">Back</a></button>
+            </div>
+        </div>
+
+        <!--------------------------- TERTIARY HEADER --------------------------->
+        <div class="tertiary-header">
+            <div class="tertiary-header-right">
+                {% if project.status == "Planning" %}
+                <button type="button" class="tertiary-header-left-button"><a href="{% url 'start_project' project.id %}">Start Project</a></button>
+                <button type="button" class="tertiary-header-left-button"><a href="{% url 'cancel_project' project.id %}">Cancel Project</a></button>
+                {% endif %}
+                
+                {% if project.status == "Initiated" %}
+                <button type="button" class="tertiary-header-left-button"><a href="{% url 'cancel_project' project.id %}">Cancel Project</a></button>
+                <button type="button" class="tertiary-header-left-button"><a href="{% url 'end_project' project.id %}">End Project</a></button>
+                {% endif %} 
+            </div>
+            <div class="tertiary-header-left">
+                <button type="button" class="tertiary-header-right-button">Product Backlog</button>
+                <button type="button" class="tertiary-header-right-button">Sprints</button> 
+                <button type="button" class="tertiary-header-right-button">Project Members</button>  
+            </div>
+        </div>
+        
+
+    </body>
+</html>
