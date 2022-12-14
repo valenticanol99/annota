@@ -2,9 +2,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Annota | Create Project </title>
+        <title>Annota | Type User Story </title>
 
         <link rel="stylesheet" href="{% static './style.css' %}">
+
     </head>
     
     <body>
@@ -23,11 +24,11 @@
         <div class="secondary-header">
             <!--------------------------- TITLE --------------------------->
             <div>
-                <p class="secondary-header-title secondary-header-title-uppercase">{{ project.name }}</p>
+                <p class="secondary-header-title secondary-header-title-uppercase">{{ project.name }} - Type User Story</p>
             </div>
             <!--------------------------- BACK BUTTON BUTTON --------------------------->
             <div class="back-button">
-                <a button></a><a href="/home/">Back</a></button>
+                <a button></a><a href="{% url 'project' project.id %}">Back</a></button>
             </div>
         </div>
 
@@ -35,20 +36,13 @@
         <div class="tertiary-header">
             <div class="tertiary-header-right">
                 {% if project.status == "Planning" %}
-                <button type="button" class="tertiary-header-left-button"><a href="{% url 'start_project' project.id %}">Start Project</a></button>
-                <button type="button" class="tertiary-header-left-button"><a href="{% url 'cancel_project' project.id %}">Cancel Project</a></button>
                 {% endif %}
                 
                 {% if project.status == "Initiated" %}
-                <button type="button" class="tertiary-header-left-button"><a href="{% url 'cancel_project' project.id %}">Cancel Project</a></button>
-                <button type="button" class="tertiary-header-left-button"><a href="{% url 'end_project' project.id %}">End Project</a></button>
                 {% endif %} 
             </div>
             <div class="tertiary-header-left">
-                <button type="button" class="tertiary-header-right-button"><a href="{% url 'type_us' project.id %}">Type User Story</a></button>
-                <button type="button" class="tertiary-header-right-button">Product Backlog</button>
-                <button type="button" class="tertiary-header-right-button">Sprints</button> 
-                <button type="button" class="tertiary-header-right-button">Project Members</button>  
+                <button type="button" class="tertiary-header-right-button"><a href="{% url 'type_us_status' project.id %}">Status</a></button>
             </div>
         </div>
         

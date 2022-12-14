@@ -2,9 +2,7 @@ from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.models import User
 
-from .models import (
-    Project,
-)
+from .models import Project, TypeUserStoryStatus
 
 # --------------------------- PROJECT ---------------------------
 class ProjectForm(ModelForm):
@@ -25,4 +23,17 @@ class ProjectForm(ModelForm):
         widgets = {
             "start_date": forms.DateInput(attrs={"type": "date"}),
             "end_date": forms.DateInput(attrs={"type": "date"}),
+        }
+
+
+# --------------------------- STATUS ---------------------------
+class TypeUserStoryStatusForm(ModelForm):
+    class Meta:
+        model = TypeUserStoryStatus
+
+        fields = ["name", "description"]
+
+        labels = {
+            "name": "Status Name",
+            "description": "Status Description",
         }

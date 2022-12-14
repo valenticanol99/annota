@@ -12,4 +12,25 @@ urlpatterns = [
         "cancel_project/<int:id_project>", views.cancel_project, name="cancel_project"
     ),
     path("end_project/<int:id_project>", views.end_project, name="end_project"),
+    # --------------------------- TYPE USER STORY ---------------------------
+    path("type_us/<int:id_project>/", views.type_us, name="type_us"),
+    # --------------------------- TYPE USER STORY STATUS ---------------------------
+    path(
+        "type_us_status/<int:id_project>/", views.type_us_status, name="type_us_status"
+    ),
+    path(
+        "type_us_status/<int:id_project>/create_type_us_status",
+        views.create_type_us_status,
+        name="create_type_us_status",
+    ),
+    path(
+        "type_us_status/<int:id_project>/delete_type_us_status/<int:id_type_us_status>",
+        views.delete_type_us_status,
+        name="delete_type_us_status",
+    ),
+    path(
+        "type_us_status/<int:id_project>/edit_type_us_status/<int:id_type_us_status>",
+        views.edit_type_us_status,
+        name="edit_type_us_status",
+    ),
 ]

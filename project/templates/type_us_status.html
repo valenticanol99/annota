@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Annota | Type User Story Status</title>
+
+        <link rel="stylesheet" href="{% static './style.css' %}">
+        <script src="https://kit.fontawesome.com/2efecdee2c.js" crossorigin="anonymous"></script>
+
+    </head>
+    
+    <body>
+
+        <!--------------------------- HEADER --------------------------->
+        <div class="header">
+            <a href="#default" class="logo">Annota</a>
+            <div class="header-right">
+              <a href="/home">Home</a>
+              <a href="#contact">Contact</a>
+              <a href="#about">About</a>
+            </div>
+        </div>
+
+        <!--------------------------- SECONDARY HEADER --------------------------->
+        <div class="secondary-header">
+            <!--------------------------- TITLE --------------------------->
+            <div>
+                <p class="secondary-header-title secondary-header-title-uppercase">{{ project.name }} - Type User Story - Status</p>
+            </div>
+            <!--------------------------- BACK BUTTON BUTTON --------------------------->
+            <div class="back-button">
+                <a button></a><a href="{% url 'type_us' project.id %}">Back</a></button>
+            </div>
+        </div>
+
+        <!--------------------------- TERTIARY HEADER --------------------------->
+        <div class="tertiary-header">
+            <div class="tertiary-header-right">
+                {% if project.status == "Initiated" or project.status == "Planning"%}
+                <button type="button" class="tertiary-header-left-button"><a href="{{request.get_full_path}}create_type_us_status">Add New Status</a></button>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!--------------------------- DISPLAY STATUS --------------------------->
+        {% for element in status %}
+        <div class="status-box-square">
+        </div>
+        <div class="status-box">
+            <div class="status-box-main-information">
+                <p class="status-box-title">
+                    {{ element.name }}
+                </p>
+                <span class="status-box-description">
+                    {{ element.description }}
+                </span>
+            </div>
+            <div class="status-box-icons">
+                {% if project.status == "Initiated" or project.status == "Planning"%}
+                <a title="Delete Status" class="status-icon" href="{{request.get_full_path}}delete_type_us_status/{{element.id}}"><i class="fa-solid fa-trash"></i></a>
+                <a title="Edit Status" class="status-icon" href="{{request.get_full_path}}edit_type_us_status/{{element.id}}"><i class="fa-solid fa-pen"></i></a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+    </body>
+</html>

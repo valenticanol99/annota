@@ -117,6 +117,7 @@
   text-align: center;
   line-height: 40px;
   text-decoration: none;
+  font-size: 12px;
 }
 
 .tertiary-header-left-button a {
@@ -136,6 +137,7 @@
   text-align: center;
   line-height: 40px;
   text-decoration: none;
+  font-size: 12px;
 }
 
 .tertiary-header-right-button a {
@@ -315,4 +317,86 @@
   color: #222835;
   background-color: #B8EFF2;
   font-size: 12px;
+}
+
+/* ------------------------- DISPLAY STATUS ------------------------- */
+
+.status-box {
+  width: 150px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: whitesmoke;
+  padding: 10px 15px 30px 15px;
+  margin: 10px 10px 10px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-items: left;
+  justify-content: space-between;
+  float: left;
+  transition: 300ms;
+}
+
+.status-box:hover {
+  scale: 1.02;
+  transition: 300ms;
+  transform: rotate(0.2deg);
+  background-color:lightgoldenrodyellow;
+}
+
+.status-box-square {
+  width: 1px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: #BDFFDB;
+  padding: 10px 15px 30px 15px;
+  margin: 10px 5px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  float: left;
+  transition: 300ms;
+}
+
+.status-box-title {
+  font-size: 14px;
+  line-height: 16px;
+  color: #222835;
+  margin: 7px 0;
+  text-transform: uppercase;
+  overflow: clip;
+}
+
+.status-box-description {
+  font-size: 10px;
+  line-height: 16px;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+  color: #768396;
+  overflow: clip;
+}
+
+.status-box-main-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.status-box-icons {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-icon {
+  font-size: smaller;
+  color: darkgray;
+  padding-top: 10px;
+}
+
+.status-icon:hover {
+  color: black;
+}
+
+.status-icon a {
+  color: darkgray;
+  text-decoration: none;
 }
